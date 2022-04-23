@@ -3,12 +3,14 @@
     python3 -m venv venv
     source venv/bin/activate
     pip install --upgrade pip
-    pip install wheel
-    pip install django
+    pip install wheel    
     pip install celery
     pip install redis
+    pip install django-celery-beat
+    pip install django-celery-results
 
     django-admin startproject proj .
+    django-admin startproject myapp .
     python manage.py migrate
     python manage.py runserver
 
