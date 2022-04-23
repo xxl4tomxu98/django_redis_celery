@@ -28,3 +28,4 @@
 
     `celery -A proj worker -l info`  (Test that the Celery worker is ready to receive tasks:)
     `celery -A proj beat -l info`    (Kill the process with CTRL-C. Now, test that the Celery task scheduler is ready for action:)
+    `celery -A proj worker --beat -l info -S django` (This is for combined action)
