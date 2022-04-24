@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from .tasks import add
+from .models import Sample
 
 def index_view(request):
 	context = dict()

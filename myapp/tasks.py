@@ -6,7 +6,8 @@ from .models import Sample
 def add(x, y):
     x = int(x)
     y = int(y)
-    result = Sample.objects.create(value=x+y)   
+    #result = Sample.objects.create(value=x+y)
+    result = x + y   
     return result
 	
 
@@ -15,10 +16,11 @@ def mul(x, y):
     x = int(x)
     y = int(y)
     total = x * (y * random.randint(3, 100))
-    result = Sample.objects.create(value=total)
-    return result
+    #result = Sample.objects.create(value=total)
+    return total
     
 
 @shared_task(name="sum_list_numbers")
 def xsum(numbers):
-    return Sample.objects.create(value=sum(numbers))
+    #result = Sample.objects.create(value=sum(numbers))
+    return sum(numbers)
