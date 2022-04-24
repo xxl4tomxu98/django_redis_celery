@@ -1,3 +1,7 @@
+    # Django Celery Redis App
+    ## This is a deployable docker containerized django app server working with asychronous jobs using celery worker
+    ## managed by celery server using redis server as broker service 
+
     Django creates a task (Python function) and tells Celery to add it to the queue. Celery puts that task into Redis (freeing Django to continue working on other things). On a separate server, Celery runs workers that can pick up tasks. Those workers listen to Redis. When the new task arrives, one worker picks it up and processes it, logging the result back to Celery
 
     python3 -m venv venv
@@ -29,3 +33,9 @@
     `celery -A proj worker -l info`  (Test that the Celery worker is ready to receive tasks:)
     `celery -A proj beat -l info`    (Kill the process with CTRL-C. Now, test that the Celery task scheduler is ready for action:)
     `celery -A proj worker --beat -l info -S django` (This is for combined action)
+
+    docker-compose up
+    docker exec -it django sh
+    # python manage.py shell
+    >>> from myapp.tasks import add
+    >>> add.delay(2,2)
