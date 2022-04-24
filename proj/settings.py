@@ -133,8 +133,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Get the base REDIS URL, default to redis' default
 BASE_REDIS_URL = os.environ.get('REDIS_URL', 'redis://localhost:6379')
 CELERY_BROKER_URL = BASE_REDIS_URL
-#CELERY_RESULT_BACKEND = "django-db"
-CELERY_RESULT_BACKEND = BASE_REDIS_URL
+CELERY_RESULT_BACKEND = "django-db"
+#CELERY_RESULT_BACKEND = BASE_REDIS_URL
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
 CELERY_IMPORTS = (
     'myapp.tasks',    
 )
