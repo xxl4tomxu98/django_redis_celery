@@ -1,2 +1,2 @@
 SECRET_KEY=67460e74-02e3-11e8-b443-00163e990bdb
-REDIS_URL=redis://localhost:6379
+REDIS_URL=redis://redis:6379/0
