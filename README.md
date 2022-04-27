@@ -34,6 +34,7 @@
     `celery -A proj beat -l info`    (Kill the process with CTRL-C. Now, test that the Celery task scheduler is ready for action:)
     `celery -A proj worker --beat -l info -S django` (This is for combined action)
 
+    docker-compose run django
     docker-compose up
     docker exec -it django sh
     # python manage.py shell
