@@ -152,10 +152,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, "myapp/static/")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Get the base REDIS URL, default to redis' default
-BASE_REDIS_URL = os.environ.get('REDIS_URL', 'redis://redis:6379/0')
-CELERY_BROKER_URL = BASE_REDIS_URL
+REDIS_HOST = os.environ.get('REDIS_HOST', 'redis')
+REDIS_PORT = os.environ.get('REDIS_PORT', '6379/0')
+CELERY_BROKER_URL = f'redis://{REDIS_HOST}:{REDIS_PORT}'
 #CELERY_RESULT_BACKEND = "django-db"
-CELERY_RESULT_BACKEND = BASE_REDIS_URL
+CELERY_RESULT_BACKEND = CELERY_BROKER_URL
 BROKER_TRANSPORT = 'redis'
 CELERY_ENABLE_UTC = False
 CELERY_TIMEZONE    = "America/New_York"
