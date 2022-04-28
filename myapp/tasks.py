@@ -1,6 +1,7 @@
 import random
 from celery import shared_task
-from .models import Sample
+#from .models import Sample
+
 
 @shared_task(name="sum_two_numbers")
 def add(x, y):
