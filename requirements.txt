@@ -15,7 +15,6 @@ django-timezone-field==4.2.3
 kombu==5.2.4
 packaging==21.3
 prompt-toolkit==3.0.29
-psycopg2-binary==2.9.3
 pyparsing==3.0.8
 python-crontab==2.6.0
 python-dateutil==2.8.2

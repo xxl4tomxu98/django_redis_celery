@@ -19,7 +19,7 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 # tells Celery to automatically discover a file called tasks.py in all of our Django apps.
 app.autodiscover_tasks()
 
-# celery will look for task.py files in apps but here is testers
+# celery will look for tasks.py files in apps but here is testers
 # This simple task just prints all the metadata about the request when the task is received
 @app.task(bind=True)
 def debug_task(self):
@@ -32,7 +32,7 @@ app.conf.beat_schedule = {
         'schedule': crontab(hour=7, minute=30, day_of_week=1),
         'args': (16, 16),
     },
-    'add-every-5-seconds': {
+    'mul-every-5-seconds': {
         'task': 'multiply_two_numbers',
         'schedule': 5.0,
         'args': (16, 16)
@@ -42,4 +42,5 @@ app.conf.beat_schedule = {
         'schedule': 30.0,
         'args': (16, 16)
     },
+    
 }
